@@ -1,0 +1,662 @@
+
+/* ==========================================================================
+    1. UI KIT DESIGN TOKENS (Змінні кольорів, шрифтів та відступів)
+    ========================================================================== */
+:root {
+  --color-primary: #0D7B7B;       /* шапка, заголовки, основний бірюзовий */
+  --color-primary-dark: #0A5C5C;  /* заклик до дії (CTA блок) */
+  --color-sand: #F3ECDC;          /* фон сторінок */
+  --color-sand-dark: #E4D7BB;     /* плашки заголовків, кроки, рамки полів */
+  --color-ochre: #A4502A;         /* кнопки, посилання, акцентні рамки */
+  --color-earth: #3B2A1E;         /* основний текст, футер */
+  --color-white: #FFFFFF;         /* картки, текст на темному */
+
+  --font-heading: 'Alegreya', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container-max: 1140px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --transition: 0.22s ease;
+}
+
+/* ==========================================================================
+    2. CSS RESET ТА БАЗОВІ СТИЛІ (Захист від горизонтального скролу)
+    ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-earth);
+  background-color: var(--color-sand);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+    3. ТИПОГРАФІКА (H1: 56 / 44 / 36, H2: 28, H3: 21)
+    ========================================================================== */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+h1 {
+  font-size: 56px; /* Desktop */
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+/* ==========================================================================
+    4. КОМПОНЕНТИ UI KIT (Кнопки та плашки заголовків)
+    ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition), transform var(--transition), border-color var(--transition);
+  text-align: center;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--color-ochre);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-ochre);
+}
+
+.btn-primary:hover {
+  background-color: #8c4120;
+  border-color: #8c4120;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1.5px solid var(--color-sand);
+}
+
+.btn-outline:hover {
+  background-color: rgba(243, 236, 220, 0.14);
+  border-color: var(--color-white);
+}
+
+.section-banner {
+  background-color: var(--color-sand-dark);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.section-banner h2 {
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+    5. ШАПКА САЙТУ (HEADER) ТА ОРНАМЕНТОВАНА СТРІЧКА
+    ========================================================================== */
+.site-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 20px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-sand);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-white);
+}
+
+.nav-link.active {
+  color: var(--color-white);
+  font-weight: 600;
+  border-bottom-color: var(--color-ochre);
+}
+
+/* Орнаментована стрічка */
+.ornament-ribbon {
+  width: 100%;
+  height: 12px;
+  background-color: var(--color-earth);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='12' viewBox='0 0 36 12'%3E%3Crect width='36' height='12' fill='%233b2a1e'/%3E%3Cpolygon points='18,1 24,6 18,11 12,6' fill='%239e472a'/%3E%3Cpolygon points='18,3.5 20.5,6 18,8.5 15.5,6' fill='%23f5efe2'/%3E%3Cpolygon points='0,1 6,6 0,11' fill='%23146c6e'/%3E%3Cpolygon points='36,1 30,6 36,11' fill='%23146c6e'/%3E%3Crect x='8' y='5' width='2' height='2' fill='%23f5efe2'/%3E%3Crect x='26' y='5' width='2' height='2' fill='%23f5efe2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* ==========================================================================
+    6. HERO СЕКЦІЯ (ПЕРШИЙ ЕКРАН)
+    ========================================================================== */
+.hero {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 64px 0 72px;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.hero-content {
+  max-width: 560px;
+}
+
+.hero-title {
+  color: var(--color-white);
+  margin-bottom: 18px;
+}
+
+.hero-subtitle {
+  color: var(--color-sand);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-illustration {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dreamcatcher-svg {
+  width: 250px;
+  height: auto;
+}
+
+/* ==========================================================================
+    7. СЕКЦІЯ 1: "ЧОМУ ОБИРАЮТЬ ДОМОВИКІВ"
+    ========================================================================== */
+.page-section {
+  padding: 48px 0 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border-top: 4px solid var(--color-primary);
+  padding: 26px 24px 28px;
+  box-shadow: 0 2px 10px rgba(59, 42, 30, 0.04);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(59, 42, 30, 0.08);
+}
+
+.feature-card h3 {
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--color-earth);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+    8. СЕКЦІЯ 2: "ЯК МИ ПРАЦЮЄМО"
+    ========================================================================== */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.step-card {
+  background-color: var(--color-sand-dark);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-text {
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-earth);
+}
+
+/* ==========================================================================
+    9. СЕКЦІЯ 3: "ВІДГУКИ"
+    ========================================================================== */
+.reviews-section {
+  padding-bottom: 60px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-ochre);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 2px 10px rgba(59, 42, 30, 0.04);
+}
+
+.review-quote {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-earth);
+}
+
+.review-author {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+    10. СЕКЦІЯ 4: CTA БАНЕР ("ГОТОВІ ДО ЧИСТОТИ?")
+    ========================================================================== */
+.cta-section {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  text-align: center;
+  padding: 56px 24px;
+}
+
+.cta-section h2 {
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
+.cta-section p {
+  color: var(--color-sand);
+  font-size: 16px;
+  margin-bottom: 26px;
+}
+
+/* ==========================================================================
+    11. ФУТЕР (FOOTER)
+    ========================================================================== */
+.site-footer {
+  background-color: var(--color-earth);
+  color: var(--color-sand);
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-link {
+  color: var(--color-sand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+    12. МОДАЛЬНЕ ВІКНО ШВИДКОГО ЗАМОВЛЕННЯ
+    ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(59, 42, 30, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background-color: var(--color-sand);
+  border: 2px solid var(--color-sand-dark);
+  border-top: 5px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  padding: 28px 24px;
+  position: relative;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--color-earth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background-color: var(--color-sand-dark);
+}
+
+.modal-card h3 {
+  color: var(--color-primary);
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.modal-desc {
+  font-size: 14.5px;
+  margin-bottom: 18px;
+  color: var(--color-earth);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--color-earth);
+}
+
+.form-control {
+  width: 100%;
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-earth);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-sand-dark);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+}
+
+.form-success {
+  display: none;
+  background-color: var(--color-white);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 10px;
+}
+
+.form-success.is-visible {
+  display: block;
+}
+
+/* ==========================================================================
+    13. АДАПТИВНІСТЬ: TABLET (<= 1024px) ТА MOBILE (<= 640px)
+    ========================================================================== */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  .hero {
+    padding: 48px 0 56px;
+  }
+
+  .hero-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 36px;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .dreamcatcher-svg {
+    width: 220px;
+  }
+
+  .features-grid,
+  .steps-grid,
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+  }
+
+  .hero {
+    padding: 36px 0 44px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .dreamcatcher-svg {
+    width: 195px;
+  }
+
+  .page-section {
+    padding-top: 36px;
+  }
+
+  .features-grid,
+  .steps-grid,
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .reviews-section {
+    padding-bottom: 44px;
+  }
+
+  .cta-section {
+    padding: 44px 16px;
+  }
+
+  .cta-section .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

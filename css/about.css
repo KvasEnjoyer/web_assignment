@@ -1,0 +1,502 @@
+
+/* ==========================================================================
+    1. UI KIT DESIGN TOKENS (Палітра, типографіка та відступи)
+    ========================================================================== */
+:root {
+  --color-primary: #0D7B7B;       /* шапка, заголовки, основний бірюзовий */
+  --color-primary-dark: #0A5C5C;  /* темний бірюзовий акцент */
+  --color-sand: #F3ECDC;          /* основний фон сторінок */
+  --color-sand-dark: #E4D7BB;     /* плашки заголовків, підкладка карти */
+  --color-ochre: #A4502A;         /* рамки аватарів, підкреслення меню, акценти */
+  --color-earth: #3B2A1E;         /* основний текст, футер */
+  --color-white: #FFFFFF;         /* світлий текст на темному фоні */
+
+  --font-heading: 'Alegreya', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container-max: 1140px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --transition: 0.22s ease;
+}
+
+/* ==========================================================================
+    2. CSS RESET ТА ЗАХИСТ ВІД ГОРИЗОНТАЛЬНОГО СКРОЛУ
+    ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-earth);
+  background-color: var(--color-sand);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+    3. ТИПОГРАФІКА (H1: 56 / 44 / 36, H2: 28, H3: 21)
+    ========================================================================== */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+/* ==========================================================================
+    4. ШАПКА САЙТУ (HEADER) ТА ОРНАМЕНТОВАНА СТРІЧКА
+    ========================================================================== */
+.site-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 20px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-sand);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-white);
+}
+
+.nav-link.active {
+  color: var(--color-white);
+  font-weight: 600;
+  border-bottom-color: var(--color-ochre);
+}
+
+/* Орнаментована стрічка */
+.ornament-ribbon {
+  width: 100%;
+  height: 12px;
+  background-color: var(--color-earth);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='12' viewBox='0 0 36 12'%3E%3Crect width='36' height='12' fill='%233b2a1e'/%3E%3Cpolygon points='18,1 24,6 18,11 12,6' fill='%239e472a'/%3E%3Cpolygon points='18,3.5 20.5,6 18,8.5 15.5,6' fill='%23f5efe2'/%3E%3Cpolygon points='0,1 6,6 0,11' fill='%23146c6e'/%3E%3Cpolygon points='36,1 30,6 36,11' fill='%23146c6e'/%3E%3Crect x='8' y='5' width='2' height='2' fill='%23f5efe2'/%3E%3Crect x='26' y='5' width='2' height='2' fill='%23f5efe2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* ==========================================================================
+    5. ЗАГОЛОВОК СТОРІНКИ (PAGE HERO BANNER)
+    ========================================================================== */
+.page-hero {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 52px 0 60px;
+}
+
+.page-hero h1 {
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+.page-hero p {
+  color: var(--color-sand);
+  font-size: 16px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+    6. ПЛАШКИ ЗАГОЛОВКІВ СЕКЦІЙ (#E4D7BB)
+    ========================================================================== */
+.section-banner {
+  background-color: var(--color-sand-dark);
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.section-banner h2 {
+  color: var(--color-primary);
+}
+
+.section-banner--left {
+  text-align: left;
+  padding: 10px 18px;
+  margin-bottom: 18px;
+}
+
+/* ==========================================================================
+    7. СЕКЦІЯ 1: "НАША ІСТОРІЯ" + КАРТКА ЛОВЦЯ СНІВ
+    ========================================================================== */
+.about-section {
+  padding: 56px 0 0;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.story-content p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-earth);
+}
+
+.story-content p + p {
+  margin-top: 14px;
+}
+
+.story-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dreamcatcher-card {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 26px 32px;
+  width: 100%;
+  max-width: 245px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(13, 123, 123, 0.14);
+}
+
+.dreamcatcher-card svg {
+  width: 180px;
+  height: auto;
+}
+
+/* ==========================================================================
+    8. СЕКЦІЯ 2: "КОМАНДА"
+    ========================================================================== */
+.team-section {
+  padding-top: 64px;
+}
+
+.team-section .section-banner {
+  margin-bottom: 36px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  text-align: center;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 3px solid var(--color-ochre);
+  margin-bottom: 14px;
+  transition: transform var(--transition);
+}
+
+.team-member:hover .member-avatar {
+  transform: translateY(-2px);
+}
+
+.member-name {
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.member-role {
+  font-size: 15px;
+  color: var(--color-earth);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+    9. СЕКЦІЯ 3: "КОНТАКТИ" ТА БЛОК КАРТИ
+    ========================================================================== */
+.contacts-section {
+  padding: 64px 0 72px;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-item dt {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.contact-item dd {
+  font-size: 15.5px;
+  color: var(--color-earth);
+}
+
+.contact-item dd a:hover {
+  color: var(--color-ochre);
+  text-decoration: underline;
+}
+
+.map-frame-wrap {
+  background-color: var(--color-sand-dark);
+  border-radius: var(--radius-lg);
+  min-height: 240px;
+  width: 100%;
+  overflow: hidden;
+  border: 1.5px solid var(--color-sand-dark);
+}
+
+.map-frame-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  border: 0;
+}
+
+/* ==========================================================================
+    10. ФУТЕР (FOOTER)
+    ========================================================================== */
+.site-footer {
+  background-color: var(--color-earth);
+  color: var(--color-sand);
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-link {
+  color: var(--color-sand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+    11. АДАПТИВНІСТЬ: TABLET (<= 1024px) ТА MOBILE (<= 640px)
+    ========================================================================== */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  .page-hero {
+    padding: 44px 0 52px;
+  }
+
+  .about-section {
+    padding-top: 44px;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .team-section {
+    padding-top: 52px;
+  }
+
+  .contacts-section {
+    padding: 52px 0 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+  }
+
+  .page-hero {
+    padding: 36px 16px 44px;
+  }
+
+  .about-section {
+    padding-top: 36px;
+  }
+
+  .dreamcatcher-card {
+    max-width: 230px;
+    padding: 22px 26px;
+  }
+
+  .team-section {
+    padding-top: 44px;
+  }
+
+  .team-section .section-banner {
+    margin-bottom: 28px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contacts-section {
+    padding: 44px 0 52px;
+  }
+
+  .contacts-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .map-frame-wrap,
+  .map-frame-wrap iframe {
+    min-height: 220px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

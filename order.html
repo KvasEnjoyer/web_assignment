@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Замовлення — Дух Оселі</title>
+  <meta name="description" content="Заповніть заявку на нічне прибирання домовиками — шаман зв'яжеться з вами протягом години.">
+
+  <!-- Підключення шрифтів з UI Kit: Alegreya (Bold) та Inter (Regular/Medium/SemiBold) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       ШАПКА САЙТУ (HEADER)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Дух Оселі — На головну">
+        <!-- Тонкий ловець снів як на основних ілюстраціях -->
+        <svg class="logo-icon" viewBox="0 0 64 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="27" r="21" stroke="#A4502A" stroke-width="2.5"/>
+          <polygon points="32,7 46,13 52,27 46,41 32,47 18,41 12,27 18,13" stroke="#F3ECDC" stroke-width="1.2"/>
+          <polygon points="32,14 41,18 45,27 41,36 32,40 23,36 19,27 23,18" stroke="#F3ECDC" stroke-width="1.1"/>
+          <line x1="32" y1="7" x2="32" y2="47" stroke="#F3ECDC" stroke-width="1"/>
+          <line x1="12" y1="27" x2="52" y2="27" stroke="#F3ECDC" stroke-width="1"/>
+          <line x1="18" y1="13" x2="46" y2="41" stroke="#F3ECDC" stroke-width="1"/>
+          <line x1="46" y1="13" x2="18" y2="41" stroke="#F3ECDC" stroke-width="1"/>
+          <circle cx="32" cy="27" r="4.5" fill="#3B2A1E" stroke="#F3ECDC" stroke-width="1.2"/>
+          <polygon points="29.8,26 34.2,26 32,29.5" fill="#F3ECDC"/>
+          <line x1="20" y1="45" x2="20" y2="62" stroke="#F3ECDC" stroke-width="1.3"/>
+          <path d="M20 61 C17.5 65 17.5 70 20 74 C22.5 70 22.5 65 20 61 Z" fill="#F3ECDC"/>
+          <line x1="32" y1="48" x2="32" y2="66" stroke="#F3ECDC" stroke-width="1.3"/>
+          <path d="M32 65 C29.5 69 29.5 74.5 32 79 C34.5 74.5 34.5 69 32 65 Z" fill="#A4502A"/>
+          <line x1="44" y1="45" x2="44" y2="62" stroke="#F3ECDC" stroke-width="1.3"/>
+          <path d="M44 61 C41.5 65 41.5 70 44 74 C46.5 70 46.5 65 44 61 Z" fill="#F3ECDC"/>
+        </svg>
+        <span>Дух Оселі</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Головна навігація">
+        <a href="index.html" class="nav-link">Головна</a>
+        <a href="services.html" class="nav-link">Послуги</a>
+        <a href="order.html" class="nav-link active" aria-current="page">Замовлення</a>
+        <a href="about.html" class="nav-link">Про нас</a>
+      </nav>
+    </div>
+
+    <!-- Орнаментована стрічка -->
+    <div class="ornament-ribbon" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         ВЕРХНІЙ БАНЕР СТОРІНКИ ЗАМОВЛЕННЯ
+         ====================================================================== -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Замовлення</h1>
+        <p>Заповніть заявку - шаман зв'яжеться з вами</p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ОСНОВНА СЕКЦІЯ: ФОРМА ЗАМОВЛЕННЯ + БЛОК "ЩО БУДЕ ДАЛІ"
+         ====================================================================== -->
+    <section class="order-section">
+      <div class="container">
+        <div class="order-layout">
+
+          <div class="order-card">
+            <form id="orderForm" class="form-grid" novalidate>
+              <div class="form-group">
+                <label for="customerName" class="form-label">Ім'я</label>
+                <input
+                  type="text"
+                  id="customerName"
+                  name="name"
+                  class="form-control"
+                  autocomplete="name"
+                  required
+                >
+                <span class="field-error" id="errorName">Будь ласка, вкажіть ваше ім'я</span>
+              </div>
+
+              <div class="form-group">
+                <label for="customerPhone" class="form-label">Телефон</label>
+                <input
+                  type="tel"
+                  id="customerPhone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="+380"
+                  autocomplete="tel"
+                  required
+                >
+                <span class="field-error" id="errorPhone">Введіть коректний номер телефону</span>
+              </div>
+
+              <div class="form-group">
+                <label for="customerEmail" class="form-label">Електронна пошта</label>
+                <input
+                  type="email"
+                  id="customerEmail"
+                  name="email"
+                  class="form-control"
+                  autocomplete="email"
+                  required
+                >
+                <span class="field-error" id="errorEmail">Введіть коректну електронну пошту</span>
+              </div>
+
+              <div class="form-group">
+                <label for="serviceSelect" class="form-label">Послуга</label>
+                <select id="serviceSelect" name="service" class="form-control">
+                  <option value="Щоденний лад" selected>Щоденний лад</option>
+                  <option value="Генеральне прибирання">Генеральне прибирання</option>
+                  <option value="Вигнання пилових духів">Вигнання пилових духів</option>
+                  <option value="Догляд за піччю">Догляд за піччю</option>
+                  <option value="Прибирання після свята">Прибирання після свята</option>
+                  <option value="Обряд оберегу">Обряд оберегу</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="cleaningDate" class="form-label">Дата</label>
+                <input
+                  type="text"
+                  id="cleaningDate"
+                  name="date"
+                  class="form-control"
+                  placeholder="дд.мм.рррр"
+                  required
+                >
+                <span class="field-error" id="errorDate">Оберіть або введіть дату прибирання</span>
+              </div>
+
+              <div class="form-group">
+                <label for="roomsCount" class="form-label">Кількість кімнат</label>
+                <input
+                  type="number"
+                  id="roomsCount"
+                  name="rooms"
+                  class="form-control"
+                  value="1"
+                  min="1"
+                  max="20"
+                  required
+                >
+                <span class="field-error" id="errorRooms">Вкажіть кількість кімнат (від 1)</span>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="customerAddress" class="form-label">Адреса</label>
+                <input
+                  type="text"
+                  id="customerAddress"
+                  name="address"
+                  class="form-control"
+                  autocomplete="street-address"
+                  required
+                >
+                <span class="field-error" id="errorAddress">Вкажіть адресу вашої оселі</span>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="customerNotes" class="form-label">Побажання</label>
+                <textarea
+                  id="customerNotes"
+                  name="notes"
+                  class="form-control"
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-primary">Надіслати заявку</button>
+              </div>
+            </form>
+
+            <div class="order-confirmation" id="orderConfirmation" aria-live="polite">
+              <span class="confirmation-badge">Заявку зареєстровано</span>
+              <h2>Дякуємо, <span id="confirmName"></span>!</h2>
+              <p>Шаман уже отримав ваш запит і зателефонує протягом години для узгодження деталей обряду.</p>
+
+              <div class="summary-box" id="orderSummaryBox"></div>
+
+              <button type="button" class="btn btn-secondary" id="newOrderBtn">Оформити ще одну заявку</button>
+            </div>
+          </div>
+
+          <aside class="info-card" aria-labelledby="nextStepsTitle">
+            <h2 id="nextStepsTitle">Що буде далі</h2>
+            <ul class="info-list">
+              <li>шаман зателефонує протягом години;</li>
+              <li>узгодимо день і обряд;</li>
+              <li>домовики прийдуть уночі;</li>
+              <li>оплата - після прибирання.</li>
+            </ul>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       ФУТЕР САЙТУ
+       ======================================================================== -->
+  <footer id="contacts" class="site-footer">
+    <div class="container footer-inner">
+      <p>Дух Оселі - клінінгова компанія домових</p>
+      <a href="about.html#contacts" class="footer-link">Контакти</a>
+    </div>
+  </footer>
+
+  <script src="js/order.js"></script>
+</body>
+</html>

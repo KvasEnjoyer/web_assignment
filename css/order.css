@@ -1,0 +1,521 @@
+/* ==========================================================================
+    1. UI KIT DESIGN TOKENS (Змінні кольорів, шрифтів та радіусів)
+    ========================================================================== */
+:root {
+  --color-primary: #0D7B7B;       /* шапка, заголовки, мітки полів */
+  --color-primary-dark: #0A5C5C;  /* темний бірюзовий акцент */
+  --color-sand: #F3ECDC;          /* основний фон сторінок */
+  --color-sand-dark: #E4D7BB;     /* плашка "Що буде далі", рамки полів */
+  --color-ochre: #A4502A;         /* кнопки, активне підкреслення меню */
+  --color-earth: #3B2A1E;         /* основний текст, футер */
+  --color-white: #FFFFFF;         /* картка форми, інпути, світлий текст */
+  --color-placeholder: #8C7F73;   /* колір підказок у полях */
+  --color-error: #B33A2B;         /* колір повідомлень валідації */
+
+  --font-heading: 'Alegreya', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container-max: 1140px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --transition: 0.22s ease;
+}
+
+/* ==========================================================================
+    2. CSS RESET ТА БАЗОВІ СТИЛІ (Захист від горизонтального скролу)
+    ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-earth);
+  background-color: var(--color-sand);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+    3. ТИПОГРАФІКА (H1: 56 / 44 / 36, H2: 28, H3: 21)
+    ========================================================================== */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+/* ==========================================================================
+    4. КНОПКИ UI KIT
+    ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition), transform var(--transition), border-color var(--transition);
+  text-align: center;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--color-ochre);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-ochre);
+}
+
+.btn-primary:hover {
+  background-color: #8c4120;
+  border-color: #8c4120;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(13, 123, 123, 0.08);
+}
+
+/* ==========================================================================
+    5. ШАПКА САЙТУ (HEADER) ТА ОРНАМЕНТОВАНА СТРІЧКА
+    ========================================================================== */
+.site-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  gap: 20px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-sand);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-white);
+}
+
+.nav-link.active {
+  color: var(--color-white);
+  font-weight: 600;
+  border-bottom-color: var(--color-ochre);
+}
+
+/* Орнаментована стрічка */
+.ornament-ribbon {
+  width: 100%;
+  height: 12px;
+  background-color: var(--color-earth);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='12' viewBox='0 0 36 12'%3E%3Crect width='36' height='12' fill='%233b2a1e'/%3E%3Cpolygon points='18,1 24,6 18,11 12,6' fill='%239e472a'/%3E%3Cpolygon points='18,3.5 20.5,6 18,8.5 15.5,6' fill='%23f5efe2'/%3E%3Cpolygon points='0,1 6,6 0,11' fill='%23146c6e'/%3E%3Cpolygon points='36,1 30,6 36,11' fill='%23146c6e'/%3E%3Crect x='8' y='5' width='2' height='2' fill='%23f5efe2'/%3E%3Crect x='26' y='5' width='2' height='2' fill='%23f5efe2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+/* ==========================================================================
+    6. ЗАГОЛОВОК СТОРІНКИ (PAGE HERO BANNER)
+    ========================================================================== */
+.page-hero {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 52px 0 60px;
+}
+
+.page-hero h1 {
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+.page-hero p {
+  color: var(--color-sand);
+  font-size: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+    7. СЕКЦІЯ ФОРМИ ЗАМОВЛЕННЯ ТА ІНФОРМАЦІЙНИЙ БЛОК
+    ========================================================================== */
+.order-section {
+  padding: 56px 0 72px;
+}
+
+.order-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.order-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 32px 32px 36px;
+  box-shadow: 0 2px 12px rgba(59, 42, 30, 0.04);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: var(--color-earth);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-sand-dark);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-control::placeholder {
+  color: var(--color-placeholder);
+  opacity: 1;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(13, 123, 123, 0.12);
+}
+
+.form-control.is-invalid {
+  border-color: var(--color-error);
+}
+
+select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 36px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpolygon points='0,0 10,0 5,6' fill='%233B2A1E'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 8px 5px;
+  cursor: pointer;
+}
+
+textarea.form-control {
+  min-height: 104px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field-error {
+  font-size: 12.5px;
+  color: var(--color-error);
+  margin-top: 4px;
+  display: none;
+}
+
+.field-error.visible {
+  display: block;
+}
+
+.form-submit-row {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.info-card {
+  background-color: var(--color-sand-dark);
+  border-radius: var(--radius-lg);
+  padding: 26px 28px 30px;
+}
+
+.info-card h2 {
+  color: var(--color-primary);
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.info-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: var(--color-earth);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.info-list li + li {
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+    8. ПОВІДОМЛЕННЯ ПРО УСПІШНЕ ОФОРМЛЕННЯ ЗАМОВЛЕННЯ
+    ========================================================================== */
+.order-confirmation {
+  display: none;
+}
+
+.order-confirmation.is-visible {
+  display: block;
+}
+
+.confirmation-badge {
+  display: inline-block;
+  background-color: var(--color-sand);
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.order-confirmation h2 {
+  color: var(--color-primary);
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.order-confirmation > p {
+  margin-bottom: 20px;
+  color: var(--color-earth);
+}
+
+.summary-box {
+  background-color: var(--color-sand);
+  border-left: 4px solid var(--color-ochre);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+.summary-box p + p {
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+    9. ФУТЕР (FOOTER)
+    ========================================================================== */
+.site-footer {
+  background-color: var(--color-earth);
+  color: var(--color-sand);
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-link {
+  color: var(--color-sand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+    10. АДАПТИВНІСТЬ: TABLET (<= 1024px) ТА MOBILE (<= 640px)
+    ========================================================================== */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  .page-hero {
+    padding: 44px 0 52px;
+  }
+
+  .order-section {
+    padding: 44px 0 60px;
+  }
+
+  .order-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+  }
+
+  .page-hero {
+    padding: 36px 16px 44px;
+  }
+
+  .order-section {
+    padding: 32px 0 48px;
+  }
+
+  .order-card {
+    padding: 24px 20px 28px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .info-card {
+    padding: 22px 20px 26px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Послуги — Дух Оселі</title>
+  <meta name="description" content="Послуги клінінгової компанії домовиків Дух Оселі: від щоденного ладу до великого весняного обряду.">
+
+  <!-- Підключення шрифтів з UI Kit: Alegreya (Bold) та Inter (Regular/Medium/SemiBold) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       ШАПКА САЙТУ (HEADER)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Дух Оселі — На головну">
+        <!-- Тонкий ловець снів як на основних ілюстраціях -->
+        <svg class="logo-icon" viewBox="0 0 64 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="27" r="21" stroke="#A4502A" stroke-width="2.5"/>
+          <polygon points="32,7 46,13 52,27 46,41 32,47 18,41 12,27 18,13" stroke="#F3ECDC" stroke-width="1.2"/>
+          <polygon points="32,14 41,18 45,27 41,36 32,40 23,36 19,27 23,18" stroke="#F3ECDC" stroke-width="1.1"/>
+          <line x1="32" y1="7" x2="32" y2="47" stroke="#F3ECDC" stroke-width="1"/>
+          <line x1="12" y1="27" x2="52" y2="27" stroke="#F3ECDC" stroke-width="1"/>
+          <line x1="18" y1="13" x2="46" y2="41" stroke="#F3ECDC" stroke-width="1"/>
+          <line x1="46" y1="13" x2="18" y2="41" stroke="#F3ECDC" stroke-width="1"/>
+          <circle cx="32" cy="27" r="4.5" fill="#3B2A1E" stroke="#F3ECDC" stroke-width="1.2"/>
+          <polygon points="29.8,26 34.2,26 32,29.5" fill="#F3ECDC"/>
+          <line x1="20" y1="45" x2="20" y2="62" stroke="#F3ECDC" stroke-width="1.3"/>
+          <path d="M20 61 C17.5 65 17.5 70 20 74 C22.5 70 22.5 65 20 61 Z" fill="#F3ECDC"/>
+          <line x1="32" y1="48" x2="32" y2="66" stroke="#F3ECDC" stroke-width="1.3"/>
+          <path d="M32 65 C29.5 69 29.5 74.5 32 79 C34.5 74.5 34.5 69 32 65 Z" fill="#A4502A"/>
+          <line x1="44" y1="45" x2="44" y2="62" stroke="#F3ECDC" stroke-width="1.3"/>
+          <path d="M44 61 C41.5 65 41.5 70 44 74 C46.5 70 46.5 65 44 61 Z" fill="#F3ECDC"/>
+        </svg>
+        <span>Дух Оселі</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Головна навігація">
+        <a href="index.html" class="nav-link">Головна</a>
+        <a href="services.html" class="nav-link active" aria-current="page">Послуги</a>
+        <a href="order.html" class="nav-link">Замовлення</a>
+        <a href="about.html" class="nav-link">Про нас</a>
+      </nav>
+    </div>
+
+    <!-- Орнаментована стрічка -->
+    <div class="ornament-ribbon" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         ВЕРХНІЙ БАНЕР СТОРІНКИ "ПОСЛУГИ"
+         ====================================================================== -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Послуги</h1>
+        <p>Від щоденного ладу до великого весняного обряду</p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         КАТАЛОГ ПОСЛУГ (6 КАРТОК)
+         ====================================================================== -->
+    <section class="services-section" aria-label="Перелік послуг">
+      <div class="container">
+        <div class="services-grid">
+
+          <a href="order.html?service=%D0%A9%D0%BE%D0%B4%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%BB%D0%B0%D0%B4" class="service-card">
+            <div>
+              <h3 class="service-title">Щоденний лад</h3>
+              <p class="service-desc">Вологе прибирання, пил з полиць, лад на кухні.</p>
+            </div>
+            <p class="service-price">від 600 грн</p>
+          </a>
+
+          <a href="order.html?service=%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B1%D0%B8%D1%80%D0%B0%D0%BD%D0%BD%D1%8F" class="service-card">
+            <div>
+              <h3 class="service-title">Генеральне прибирання</h3>
+              <p class="service-desc">Вікна, шафи, стелі й усі кутки, куди не дотягнутися.</p>
+            </div>
+            <p class="service-price">від 1800 грн</p>
+          </a>
+
+          <a href="order.html?service=%D0%92%D0%B8%D0%B3%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BF%D0%B8%D0%BB%D0%BE%D0%B2%D0%B8%D1%85%20%D0%B4%D1%83%D1%85%D1%96%D0%B2" class="service-card">
+            <div>
+              <h3 class="service-title">Вигнання пилових духів</h3>
+              <p class="service-desc">Під диванами, ліжками і за шафами - туди, де пил живе роками.</p>
+            </div>
+            <p class="service-price">від 900 грн</p>
+          </a>
+
+          <a href="order.html?service=%D0%94%D0%BE%D0%B3%D0%BB%D1%8F%D0%B4%20%D0%B7%D0%B0%20%D0%BF%D1%96%D1%87%D1%87%D1%8E" class="service-card">
+            <div>
+              <h3 class="service-title">Догляд за піччю</h3>
+              <p class="service-desc">Чистка печі, каміна й витяжки, щоб у домі тримався жар.</p>
+            </div>
+            <p class="service-price">від 1200 грн</p>
+          </a>
+
+          <a href="order.html?service=%D0%9F%D1%80%D0%B8%D0%B1%D0%B8%D1%80%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BF%D1%96%D1%81%D0%BB%D1%8F%20%D1%81%D0%B2%D1%8F%D1%82%D0%B0" class="service-card">
+            <div>
+              <h3 class="service-title">Прибирання після свята</h3>
+              <p class="service-desc">Посуд, підлога, сміття - зранку і сліду не лишиться.</p>
+            </div>
+            <p class="service-price">від 1500 грн</p>
+          </a>
+
+          <a href="order.html?service=%D0%9E%D0%B1%D1%80%D1%8F%D0%B4%20%D0%BE%D0%B1%D0%B5%D1%80%D0%B5%D0%B3%D1%83" class="service-card">
+            <div>
+              <h3 class="service-title">Обряд оберегу</h3>
+              <p class="service-desc">Окурювання шавлією і ловець снів над дверима.</p>
+            </div>
+            <p class="service-price">від 400 грн</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         НИЖНІЙ БАНЕР ЗАКЛИКУ ДО ДІЇ
+         ====================================================================== -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Не знайшли потрібного?</h2>
+        <p>Опишіть задачу в заявці - шаман підбере обряд.</p>
+        <a href="order.html" class="btn btn-primary">Залишити заявку</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       ФУТЕР САЙТУ
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Дух Оселі - клінінгова компанія домових</p>
+      <a href="about.html#contacts" class="footer-link">Контакти</a>
+    </div>
+  </footer>
+
+</body>
+</html>
